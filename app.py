@@ -3,18 +3,20 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import RocCurveDisplay, confusion_matrix, ConfusionMatrixDisplay
 from pandas import read_csv
 import joblib
+import os
+BASE_DIR = os.path.dirname(__file__)
 
 @st.cache_resource
 def load_data():
-    return read_csv('X_test.csv'), read_csv('Y_test.csv')
+    return read_csv(os.path.join(BASE_DIR, 'X_test.csv')), read_csv(os.path.join(BASE_DIR, 'Y_test.csv'))
 
 @st.cache_resource
 def load_model():
     return {
-        'Ada Boost': joblib.load('AdaBoost.joblib'),
-        'Extra Trees': joblib.load('ExtraTrees.joblib'),
-        'Gradient Boosting': joblib.load('GradientBoosting.joblib'),
-        'Random Forest': joblib.load('RandomForest.joblib')
+        'Ada Boost': joblib.load(os.path.join(BASE_DIR, 'AdaBoost.joblib')),
+        'Extra Trees': joblib.load(os.path.join(BASE_DIR, 'ExtraTrees.joblib')),
+        'Gradient Boosting': joblib.load(os.path.join(BASE_DIR, 'GradientBoosting.joblib')),
+        'Random Forest': joblib.load(os.path.join(BASE_DIR,'RandomForest.joblib'))
     }
 
 
