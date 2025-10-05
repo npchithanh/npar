@@ -4,6 +4,7 @@ from sklearn.metrics import RocCurveDisplay, confusion_matrix, ConfusionMatrixDi
 from pandas import read_csv
 import joblib
 import os
+st.set_page_config(page_title="Acute pancreatitis - PAR index", layout="wide")
 BASE_DIR = os.path.dirname(__file__)
 
 @st.cache_resource
